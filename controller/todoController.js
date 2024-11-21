@@ -30,7 +30,7 @@ exports.putTodo = async (req,res ) => {
 exports.deleteTodo = async (req,res ) => {
     try {
         const data = await Todo.findByIdAndDelete(req.params.id)
-        return res.json({errors:false,message:"Task deleted Successfully"})
+        return res.json({errors:false,data:data})
     } catch (error) {
         return res.status(400).json({errors:true,message:error.message})
     }
